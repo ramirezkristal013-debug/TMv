@@ -12,12 +12,8 @@
         .bg-midnight { background-color: #1A2238; }
         .text-orange-vibrant { color: #FF6B35; }
         .bg-orange-vibrant { background-color: #FF6B35; }
-        .card-shadow { transition: all 0.3s ease; border: 1px solid #e5e7eb; }
-        .card-shadow:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #FF6B35; }
-        
-        /* Estilos para el Modal */
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { background-color: white; margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto; }
+        .modal { transition: opacity 0.25s ease; }
+        .modal-active { overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -29,10 +25,10 @@
                 <a href="#inicio" class="hover:text-orange-vibrant transition">Inicio</a>
                 <a href="#servicios" class="hover:text-orange-vibrant transition">Servicios</a>
                 <a href="#casos" class="hover:text-orange-vibrant transition">Casos de Éxito</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2fSydbo3_MKsbFj_JUnAGGu7CStkstSiNsSIlDZ_C0FDBmQ/viewform" target="_blank" class="hover:text-orange-vibrant transition">Satisfacción</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2fSydbo3_MKsbFj_JUnAGGu7CStkstSiNsSIlDZ_C0FDBmQ/viewform" target="_blank" class="hover:text-orange-vibrant transition">Encuesta de Satisfacción</a>
             </div>
-            <button onclick="openModal()" class="bg-orange-vibrant text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 transition shadow-md">
-                Auditoría Gratis
+            <button onclick="toggleModal()" class="bg-orange-vibrant text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 transition shadow-md">
+                Solicitar Diagnóstico
             </button>
         </div>
     </nav>
@@ -40,7 +36,7 @@
     <header id="inicio" class="bg-midnight text-white py-16 px-4 text-center">
         <div class="max-w-5xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-bold mb-6 italic">Agencia de Marca Empleadora Digital</h1>
-            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Transformamos la imagen de tu empresa para atraer al talento que mereces.</p>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Diseñamos el futuro de tu equipo. Haz que los mejores talentos elijan tu empresa.</p>
             <div class="relative max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white/5 bg-black">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="1000023911.mp4" type="video/mp4">
@@ -50,147 +46,144 @@
     </header>
 
     <section id="servicios" class="py-20 max-w-7xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-12 italic">Nuestros Servicios</h2>
+        <h2 class="text-3xl font-bold mb-12">Nuestras Soluciones</h2>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl card-shadow">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-orange-500 transition">
                 <h3 class="font-bold text-xl mb-3">Creamos Reseñas</h3>
-                <p class="text-gray-600">Optimizamos tu reputación digital en Glassdoor y portales de empleo.</p>
+                <p class="text-gray-600">Gestionamos y optimizamos tu reputación en portales laborales para generar confianza inmediata.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl card-shadow">
-                <h3 class="font-bold text-xl mb-3">Videos Testimoniales</h3>
-                <p class="text-gray-600">Contenido audiovisual auténtico con tus empleados reales.</p>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-orange-500 transition">
+                <h3 class="font-bold text-xl mb-3">Producción de Videos</h3>
+                <p class="text-gray-600">Contamos la historia de tu empresa a través de los ojos de tus propios colaboradores.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl card-shadow">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-orange-500 transition">
                 <h3 class="font-bold text-xl mb-3">Páginas de Cultura</h3>
-                <p class="text-gray-600">Diseñamos sitios web que proyectan el valor de trabajar en tu equipo.</p>
+                <p class="text-gray-600">Desarrollamos sitios web atractivos que muestran el ADN único de tu organización.</p>
             </div>
         </div>
     </section>
 
     <section id="casos" class="py-20 bg-gray-100 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 italic text-midnight">Casos de Éxito</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Casos de Éxito</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-12">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-blue-500">
-                    <p class="text-xs font-bold text-blue-500 uppercase">Tecnología</p>
-                    <h4 class="font-bold text-lg mt-1">TechNova Solutions</h4>
-                    <p class="text-sm mt-3 italic">"Hoy el talento nos busca a nosotros." — Laura Méndez (HR)</p>
+                    <p class="text-xs font-bold text-blue-500 uppercase italic">Tecnología</p>
+                    <h4 class="font-bold text-lg">TechNova Solutions</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> +120% solicitudes de empleo y reducción de tiempo de contratación.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-orange-500">
-                    <p class="text-xs font-bold text-orange-500 uppercase">Restaurante</p>
-                    <h4 class="font-bold text-lg mt-1 text-midnight">Sabor Urbano</h4>
-                    <p class="text-sm mt-3 italic">"Atraemos empleados comprometidos." — Carlos Ramírez</p>
+                    <p class="text-xs font-bold text-orange-500 uppercase italic">Restaurante</p>
+                    <h4 class="font-bold text-lg">Sabor Urbano</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> Reducción de rotación en 40% y mayor interés local.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-slate-700">
-                    <p class="text-xs font-bold text-slate-700 uppercase text-midnight">Manufactura</p>
-                    <h4 class="font-bold text-lg mt-1">Industrias Metalmex</h4>
-                    <p class="text-sm mt-3 italic">"Hoy somos vistos como un lugar confiable." — María Torres</p>
+                    <p class="text-xs font-bold text-slate-700 uppercase italic">Manufactura</p>
+                    <h4 class="font-bold text-lg">Industrias Metalmex</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> Cambio total de percepción y mejora en reputación digital.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-red-500">
-                    <p class="text-xs font-bold text-red-500 uppercase">Salud</p>
-                    <h4 class="font-bold text-lg mt-1">Salud Integral Plus</h4>
-                    <p class="text-sm mt-3 italic">"+80% en solicitudes de personal médico." — Dr. Javier López</p>
+                    <p class="text-xs font-bold text-red-500 uppercase italic">Salud</p>
+                    <h4 class="font-bold text-lg">Salud Integral Plus</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> +80% en solicitudes de personal médico especializado.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-yellow-500 text-midnight">
-                    <p class="text-xs font-bold text-yellow-500 uppercase">Retail</p>
-                    <h4 class="font-bold text-lg mt-1">Comercial Nova</h4>
-                    <p class="text-sm mt-3 italic">"Ven nuestra empresa como oportunidad de desarrollo." — Ana García</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-yellow-500">
+                    <p class="text-xs font-bold text-yellow-500 uppercase italic">Retail</p>
+                    <h4 class="font-bold text-lg">Comercial Nova</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> Posicionamiento como empleador de desarrollo profesional.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-green-600">
-                    <p class="text-xs font-bold text-green-600 uppercase">Logística</p>
-                    <h4 class="font-bold text-lg mt-1">Logística Express</h4>
-                    <p class="text-sm mt-3 italic">"Colaboradores convertidos en promotores." — Luis Herrera</p>
+                    <p class="text-xs font-bold text-green-600 uppercase italic">Logística</p>
+                    <h4 class="font-bold text-lg">Logística Express</h4>
+                    <p class="text-sm mt-2"><strong>Logro:</strong> Colaboradores convertidos en promotores de marca.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="modalAuditoria" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[100] p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-midnight">Criterios de Auditoría Digital</h2>
+                <button onclick="toggleModal()" class="text-gray-400 hover:text-black text-2xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-6 text-sm text-gray-700">
+                <div>
+                    <h3 class="font-bold text-orange-vibrant text-lg border-b mb-2 italic">1. Identidad y Propuesta de Valor (EVP)</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li><strong>Claridad del Propósito:</strong> ¿Se entiende de inmediato qué hace la empresa?</li>
+                        <li><strong>Valores Corporativos:</strong> ¿Están visibles y explicados?</li>
+                        <li><strong>EVP:</strong> ¿Se mencionan beneficios claros más allá del salario?</li>
+                        <li><strong>Personalidad de Marca:</strong> ¿El tono de voz es coherente?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-orange-vibrant text-lg border-b mb-2 italic">2. Experiencia del Candidato (UX/UI)</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li><strong>Navegabilidad:</strong> ¿Es fácil encontrar la sección de Vacantes?</li>
+                        <li><strong>Adaptabilidad Móvil:</strong> ¿Funciona bien en celulares?</li>
+                        <li><strong>Velocidad de Carga:</strong> ¿La página carga rápido?</li>
+                        <li><strong>Llamadas a la Acción:</strong> ¿Los botones de postulación son atractivos?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-orange-vibrant text-lg border-b mb-2 italic">3. Contenido y Narrativa</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li><strong>Testimonios reales:</strong> ¿Hay frases de empleados actuales?</li>
+                        <li><strong>Contenido Visual:</strong> ¿Imágenes reales o solo fotos de stock?</li>
+                        <li><strong>Cultura en Acción:</strong> ¿Se muestran actividades de integración?</li>
+                        <li><strong>Actualización:</strong> ¿El contenido es reciente?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-orange-vibrant text-lg border-b mb-2 italic">4. Proceso de Reclutamiento Digital</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li><strong>Simplicidad:</strong> ¿El formulario pide información innecesaria?</li>
+                        <li><strong>Transparencia:</strong> ¿Se explican las etapas de selección?</li>
+                        <li><strong>Canales de Contacto:</strong> ¿Hay chat o redes para dudas?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-orange-vibrant text-lg border-b mb-2 italic">5. Presencia y Reputación Online</h3>
+                    <ul class="list-disc ml-5 space-y-1">
+                        <li><strong>Integración Social:</strong> ¿Enlaces a LinkedIn, Instagram o Glassdoor?</li>
+                        <li><strong>Coherencia Visual:</strong> ¿Colores y tipografías coinciden con la marca?</li>
+                        <li><strong>SEO de Empleo:</strong> ¿Aparece en los primeros resultados de búsqueda?</li>
+                    </ul>
+                </div>
+            </div>
+            <button onclick="toggleModal()" class="mt-8 w-full bg-midnight text-white py-3 rounded-xl font-bold hover:bg-orange-600 transition">Cerrar Diagnóstico</button>
+        </div>
+    </div>
+
     <footer class="bg-black text-white py-16 px-4">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left">
+            <div>
                 <div class="text-3xl font-bold mb-4 italic">Talent<span class="text-orange-vibrant">Magnet</span></div>
-                <p class="text-gray-500">Tecnológico de México Campus Acapulco.</p>
+                <p class="text-gray-500">Transformando empresas en imanes de talento desde Acapulco, Guerrero.</p>
             </div>
             <div class="text-center md:text-right">
-                <h4 class="font-bold mb-6 text-gray-400 uppercase text-sm italic">Síguenos</h4>
-                <div class="flex flex-col md:items-end space-y-4 font-medium italic">
+                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-400">Síguenos</h4>
+                <div class="flex flex-col md:items-end space-y-4 font-medium">
                     <a href="https://www.tiktok.com/@tecnm.aca.la?_r=1&_t=ZS-94xlkeooNbp" target="_blank" class="hover:text-orange-vibrant transition">TikTok Oficial</a>
                     <a href="https://www.instagram.com/talentmanet?igsh=dTkzOTJqaGt2YjRs&utm_source=qr" target="_blank" class="hover:text-orange-vibrant transition">Instagram</a>
                     <a href="https://www.facebook.com/share/1Hr3nxfa3J/" target="_blank" class="hover:text-orange-vibrant transition">Facebook</a>
                 </div>
             </div>
         </div>
-        <div class="mt-16 pt-8 border-t border-gray-900 text-center text-gray-600 text-sm">
-            © 2026 TalentMagnet Digital Agency.
+        <div class="mt-16 pt-8 border-t border-gray-900 text-center text-gray-600 text-sm italic">
+            © 2026 TalentMagnet Digital Agency. Tecnológico de México Campus Acapulco.
         </div>
     </footer>
 
-    <div id="auditModal" class="modal">
-        <div class="modal-content text-midnight">
-            <div class="flex justify-between items-center mb-6 border-b pb-4">
-                <h2 class="text-2xl font-bold italic">Cuestionario de Auditoría de Marca Empleadora</h2>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-black text-2xl font-bold">&times;</button>
-            </div>
-            
-            <form class="space-y-8 pb-6">
-                <div>
-                    <h3 class="font-bold text-orange-vibrant mb-3">1. Identidad y Propuesta de Valor (EVP)</h3>
-                    <ul class="text-sm space-y-2 list-disc pl-5 text-gray-700 italic">
-                        <li>¿Se entiende de inmediato qué hace la empresa y cuál es su misión?</li>
-                        <li>¿Están los valores claramente visibles y explicados?</li>
-                        <li>¿Se mencionan beneficios claros por trabajar ahí (más allá del salario)?</li>
-                        <li>¿El tono de voz es coherente (profesional, cercano, tecnológico)?</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-orange-vibrant mb-3 italic">2. Experiencia del Candidato (UX/UI)</h3>
-                    <ul class="text-sm space-y-2 list-disc pl-5 text-gray-700 italic">
-                        <li>¿Es fácil encontrar la sección de "Carreras"?</li>
-                        <li>¿La página se ve bien en celulares?</li>
-                        <li>¿La página carga rápido o hay elementos que entorpecen?</li>
-                        <li>¿Los botones de "Postularse" son visibles y atractivos?</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-orange-vibrant mb-3 italic">3. Contenido y Narrativa (Storytelling)</h3>
-                    <ul class="text-sm space-y-2 list-disc pl-5 text-gray-700 italic">
-                        <li>¿Hay frases de empleados contando su experiencia?</li>
-                        <li>¿Se usan fotos reales del equipo o solo stock?</li>
-                        <li>¿Se muestran actividades de integración o formación?</li>
-                        <li>¿El contenido parece actualizado o es obsoleto?</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-orange-vibrant mb-3 italic">4. Proceso de Reclutamiento Digital</h3>
-                    <ul class="text-sm space-y-2 list-disc pl-5 text-gray-700 italic">
-                        <li>¿El formulario pide demasiada información innecesaria?</li>
-                        <li>¿Se explican las etapas de selección después de enviar el CV?</li>
-                        <li>¿Hay canales para resolver dudas de candidatos?</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-orange-vibrant mb-3 italic">5. Presencia y Reputación Online</h3>
-                    <ul class="text-sm space-y-2 list-disc pl-5 text-gray-700 italic">
-                        <li>¿Están integrados LinkedIn, Instagram o Glassdoor?</li>
-                        <li>¿Los colores coinciden con la marca digital?</li>
-                        <li>¿Apareces en los primeros resultados al buscar empleo en tu empresa?</li>
-                    </ul>
-                </div>
-            </form>
-            
-            <div class="text-center mt-6 border-t pt-6">
-                <button onclick="closeModal()" class="bg-midnight text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-vibrant transition italic">
-                    Entendido, cerrar análisis
-                </button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        const modal = document.getElementById("auditModal");
-        function openModal() { modal.style.display = "block"; document.body.style.overflow = "hidden"; }
-        function closeModal() { modal.style.display = "none"; document.body.style.overflow = "auto"; }
-        window.onclick = function(event) { if (event.target == modal) { closeModal(); } }
+        function toggleModal() {
+            const modal = document.getElementById('modalAuditoria');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+            document.body.classList.toggle('modal-active');
+        }
     </script>
 
 </body>
