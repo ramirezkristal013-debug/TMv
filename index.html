@@ -13,7 +13,7 @@
         .text-orange-vibrant { color: #FF6B35; }
         .bg-orange-vibrant { background-color: #FF6B35; }
         .card-shadow { transition: all 0.3s ease; border: 1px solid #e5e7eb; }
-        .card-shadow:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #FF6B35; }
+        .card-shadow:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1); border-color: #FF6B35; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -21,23 +21,23 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-midnight italic">Talent<span class="text-orange-vibrant">Magnet</span></div>
-            <div class="hidden md:flex space-x-8 font-medium">
+            <div class="hidden md:flex space-x-6 font-medium">
                 <a href="#inicio" class="hover:text-orange-vibrant transition">Inicio</a>
                 <a href="#servicios" class="hover:text-orange-vibrant transition">Servicios</a>
-                <a href="#casos" class="hover:text-orange-vibrant transition">Casos de Éxito</a>
                 <a href="#auditoria" class="hover:text-orange-vibrant transition">Auditoría</a>
+                <a href="#encuesta" class="hover:text-orange-vibrant transition">Encuesta</a>
+                <a href="#casos" class="hover:text-orange-vibrant transition">Casos</a>
             </div>
-            <a href="#auditoria" class="bg-orange-vibrant text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 transition shadow-md">
-                Solicitar Diagnóstico
+            <a href="#auditoria" class="bg-orange-vibrant text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600 transition text-sm">
+                Diagnóstico Gratis
             </a>
         </div>
     </nav>
 
     <header id="inicio" class="bg-midnight text-white py-16 px-4 text-center">
         <div class="max-w-5xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 italic">Agencia de Marca Empleadora Digital</h1>
-            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Diseñamos el futuro de tu equipo. Haz que los mejores talentos elijan tu empresa.</p>
-            
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 italic">Marca Empleadora Digital</h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Transformamos tu cultura organizacional en una ventaja competitiva para atraer al mejor talento.</p>
             <div class="relative max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-8 border-white/5 bg-black">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
                     <source src="1000023911.mp4" type="video/mp4">
@@ -46,94 +46,29 @@
         </div>
     </header>
 
-    <section id="servicios" class="py-20 max-w-7xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-12">Nuestras Soluciones</h2>
-        <div class="grid md:grid-cols-3 gap-8">
+    <section id="servicios" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
             <div class="bg-white p-8 rounded-2xl card-shadow">
-                <h3 class="font-bold text-xl mb-3">Creamos Reseñas</h3>
-                <p class="text-gray-600">Gestionamos y optimizamos tu reputación en portales laborales para generar confianza inmediata.</p>
+                <h3 class="font-bold text-xl mb-3 text-midnight">Reseñas Digitales</h3>
+                <p class="text-gray-600">Auditamos y mejoramos tu reputación en Glassdoor y LinkedIn.</p>
             </div>
             <div class="bg-white p-8 rounded-2xl card-shadow">
-                <h3 class="font-bold text-xl mb-3">Producción de Videos</h3>
-                <p class="text-gray-600">Contamos la historia de tu empresa a través de los ojos de tus propios colaboradores.</p>
+                <h3 class="font-bold text-xl mb-3 text-midnight">Storytelling Audiovisual</h3>
+                <p class="text-gray-600">Videos testimoniales que conectan emocionalmente con los candidatos.</p>
             </div>
             <div class="bg-white p-8 rounded-2xl card-shadow">
-                <h3 class="font-bold text-xl mb-3">Páginas de Cultura</h3>
-                <p class="text-gray-600">Desarrollamos sitios web atractivos que muestran el ADN único de tu organización.</p>
+                <h3 class="font-bold text-xl mb-3 text-midnight">Cultura Web</h3>
+                <p class="text-gray-600">Diseño de landing pages de carrera con alta tasa de conversión.</p>
             </div>
         </div>
     </section>
 
-    <section id="casos" class="py-20 bg-gray-100 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">Casos de Éxito</h2>
-            <p class="text-gray-600 mb-16 italic">Resultados reales logrados con nuestras estrategias.</p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-blue-500">
-                    <p class="text-xs font-bold text-blue-500">TECNOLOGÍA</p>
-                    <h4 class="font-bold text-lg">TechNova Solutions</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> +120% solicitudes de empleo y reducción de tiempo de contratación.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-orange-500">
-                    <p class="text-xs font-bold text-orange-500">RESTAURANTE</p>
-                    <h4 class="font-bold text-lg">Sabor Urbano</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> Reducción de rotación en 40% y mayor interés local.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-slate-700">
-                    <p class="text-xs font-bold text-slate-700">MANUFACTURA</p>
-                    <h4 class="font-bold text-lg">Industrias Metalmex</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> Cambio total de percepción y mejora en reputación digital.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-red-500">
-                    <p class="text-xs font-bold text-red-500">SALUD</p>
-                    <h4 class="font-bold text-lg">Salud Integral Plus</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> +80% en solicitudes de personal médico especializado.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-yellow-500">
-                    <p class="text-xs font-bold text-yellow-500">RETAIL</p>
-                    <h4 class="font-bold text-lg">Comercial Nova</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> Posicionamiento como empleador de desarrollo profesional.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-green-600">
-                    <p class="text-xs font-bold text-green-600">LOGÍSTICA</p>
-                    <h4 class="font-bold text-lg">Logística Express</h4>
-                    <p class="text-sm mt-2"><strong>Logro:</strong> Colaboradores convertidos en promotores de marca.</p>
-                </div>
+    <section id="auditoria" class="py-20 bg-white px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-midnight">Formulario de Auditoría: Marca Empleadora</h2>
+                <p class="text-gray-600 mt-2">Analizamos 5 ejes críticos de tu presencia digital</p>
             </div>
-        </div>
-    </section>
 
-    <section id="auditoria" class="py-20 bg-white px-4 text-center">
-        <div class="max-w-4xl mx-auto p-12 rounded-3xl bg-gray-50 border-2 border-dashed border-gray-200">
-            <h2 class="text-3xl font-bold mb-6">Auditoría de Marca Empleadora</h2>
-            <p class="text-gray-600 mb-8 text-lg">Analizamos tu presencia digital actual para decirte por qué el talento no está llegando a tu puerta.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2fSydbo3_MKsbFj_JUnAGGu7CStkstSiNsSIlDZ_C0FDBmQ/viewform" target="_blank" class="bg-midnight text-white px-10 py-4 rounded-xl font-bold hover:bg-orange-vibrant transition shadow-lg">
-                Comenzar Auditoría Gratuita
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-black text-white py-16 px-4">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left">
-                <div class="text-3xl font-bold mb-4 italic">Talent<span class="text-orange-vibrant">Magnet</span></div>
-                <p class="text-gray-500">Transformando empresas en imanes de talento desde Acapulco, Guerrero.</p>
-            </div>
-            
-            <div class="text-center md:text-right">
-                <h4 class="font-bold mb-6 uppercase text-sm tracking-widest text-gray-400">Síguenos en nuestras redes</h4>
-                <div class="flex flex-col md:items-end space-y-4 font-medium">
-                    <a href="https://www.tiktok.com/@tecnm.aca.la?_r=1&_t=ZS-94xlkeooNbp" target="_blank" class="hover:text-orange-vibrant transition">TikTok Oficial</a>
-                    <a href="https://www.instagram.com/talentmanet?igsh=dTkzOTJqaGt2YjRs&utm_source=qr" target="_blank" class="hover:text-orange-vibrant transition">Instagram</a>
-                    <a href="https://www.facebook.com/share/1Hr3nxfa3J/" target="_blank" class="hover:text-orange-vibrant transition">Facebook</a>
-                </div>
-            </div>
-        </div>
-        <div class="mt-16 pt-8 border-t border-gray-900 text-center text-gray-600 text-sm">
-            © 2026 TalentMagnet Digital Agency. Todos los derechos reservados.
-        </div>
-    </footer>
-
-</body>
-</html>
+            <div class="grid md:grid-cols-1 gap-6">
+                <div class="bg-gray-5
